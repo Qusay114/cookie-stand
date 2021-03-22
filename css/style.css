@@ -48,3 +48,23 @@ ul
     padding: 24px 0px 24px 80px;
     width: 250px;
 }
+
+
+table#dailyDataTable 
+{
+    margin-left: 13%;
+    padding: 3px;
+}
+
+
+table, th, td 
+{
+    border: 1px solid black;
+    padding: 8px;
+    color:#9a000e;
+}
+
+th
+{
+    color:black;
+}
