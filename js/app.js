@@ -174,3 +174,15 @@ cells[5][15].textContent = Lima.totalSales;
 
 cells[6][15].textContent = sumdailyTotal; //the total daily of the total hourly for all locations
 
+
+
+
+//Create the dynamic elements for the index page
+let objList = [Seattle,Tokyo,Paris,Dubai,Lima];
+
+for(let i = 0 ; i < 5 ; i++)
+{
+  const openHours = document.createElement('li');
+  document.getElementById('rightSection').appendChild(openHours);
+  openHours.textContent = `${objList[i].location}: Start from ${objList[i].startHour} am till ${objList[i].endHour-12} pm `;
+}
