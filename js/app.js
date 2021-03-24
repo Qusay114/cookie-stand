@@ -38,7 +38,7 @@ function createTable(container,id,rowNum , coloumnNum , headerRow)
 }
 
 
-// let objList = [];
+let objList = [];
 //to create an object for daily data store where every hour has its number of purchases for each loaction (seattle , tokyo , ...)
 function DailyData(location,minCustPH , maxCustPH , averageCperC , startHour , endHour)
 {
@@ -51,7 +51,7 @@ function DailyData(location,minCustPH , maxCustPH , averageCperC , startHour , e
   this.salesPH = [];
   this.custPH = [];
   this.totalSales = 0;
-  // objList.push(this);
+  objList.push(this);
 }
 
 //to create a method for DailyData object that will fill the data of purchases for each hour and sum the total
@@ -109,87 +109,74 @@ Paris.fillData();
 const Lima = new DailyData('Lima',2,16,4.6,6,19);
 Lima.fillData();
 
+showData();//to show the data on the table
 
 //to create a table then fill it with data of the instances
-const cells = createTable('container','dailyDataTable',7,16,true); //here is the syntax : createTable(container,id,rows,coloumns,Do you want a header row ?)
-let counter = Seattle.startHour - 1;//this -1 because I left an empty cell before start putting the hours
-let endH = Seattle.endHour;
-let sumdailyTotal = 0;
-let sumHourlyTotal = 0;
-cells[0][0].textContent='';
-for(let c = 0 ; c<16; c++)
+function showData()
 {
+  const cells = createTable('container','dailyDataTable',objList.length+2,16,true); //here is the syntax : createTable(container,id,rows,coloumns,Do you want a header row ?)
+  let counter = 5;//this less than start hour by -1 because I left an empty cell before start putting the hours
+  let endH = 19;
+  let sumdailyTotal = 0;
+  let sumHourlyTotal = 0;
+  cells[0][0].textContent='';
+  for(let c = 0 ; c<16; c++)
+  {
   //to fill the row of hours
-  if(counter<12 && c !== 0)
-  {
-    cells[0][c].textContent = `${counter} am`;
+    if(counter<12 && c !== 0)
+    {
+      cells[0][c].textContent = `${counter} am`;
+    }
+    else if(counter === 12 && c !== 0)
+    {
+      cells[0][c].textContent = `${counter} pm`;
+    }
+    else if(counter <= endH && c !== 0)
+    {
+      cells[0][c].textContent = `${counter - 12} pm`;
+    }
+    counter ++ ;
+
+    //to fill the data of each location with its purchase cookies per hour
+    if(c<14)
+    {
+      sumHourlyTotal=0;
+      for(let i = 1 ; i<=objList.length; i++)
+      {
+        cells[i][c+1].textContent = objList[i-1].salesPH[c];
+
+        sumHourlyTotal = sumHourlyTotal + objList[i-1].salesPH[c];
+      }
+      cells[objList.length+1][0].textContent = 'Total';
+      cells[objList.length+1][c+1].textContent = sumHourlyTotal ;
+      sumdailyTotal = sumdailyTotal + sumHourlyTotal;
+    }
+
+    //to fill the location name and the total sales of the day for each location
+    if(c<objList.length)
+    {
+      cells[c+1][0].textContent = objList[c].location;
+      cells[c+1][15].textContent = objList[c].totalSales;
+    }
   }
-  else if(counter === 12 && c !== 0)
-  {
-    cells[0][c].textContent = `${counter} pm`;
-  }
-  else if(counter <= endH && c !== 0)
-  {
-    cells[0][c].textContent = `${counter - 12} pm`;
-  }
-  counter ++ ;
-
-  //to fill the data of each location with its purchase cookies per hour
-  if(c<14)
-  {
-
-    cells[1][c+1].textContent = Seattle.salesPH[c];
-
-    cells[2][c+1].textContent = Tokyo.salesPH[c];
-
-    cells[3][c+1].textContent = Dubai.salesPH[c];
-
-    cells[4][c+1].textContent = Paris.salesPH[c];
-
-    cells[5][c+1].textContent = Lima.salesPH[c];
-
-    cells[6][0].textContent = 'Total';
-    sumHourlyTotal = Seattle.salesPH[c] + Tokyo.salesPH[c] + Dubai.salesPH[c] + Paris.salesPH[c] + Lima.salesPH[c] ;
-    cells[6][c+1].textContent = sumHourlyTotal ;
-    sumdailyTotal = sumdailyTotal + sumHourlyTotal;
-  }
-
+  cells[0][15].textContent = 'Daily Location Total';
+  cells[objList.length+1][15].textContent = sumdailyTotal; //the total daily of the total hourly for all locations
 }
 
 
-//to fill the location name and the total sales of the day for each location
-cells[0][15].textContent = 'Daily Location Total';
-cells[1][0].textContent = Seattle.location;
-cells[1][15].textContent = Seattle.totalSales;
-
-cells[2][0].textContent = Tokyo.location;
-cells[2][15].textContent = Tokyo.totalSales;
-
-cells[3][0].textContent = Dubai.location;
-cells[3][15].textContent = Dubai.totalSales;
-
-cells[4][0].textContent = Paris.location;
-cells[4][15].textContent = Paris.totalSales;
-
-cells[5][0].textContent = Lima.location;
-cells[5][15].textContent = Lima.totalSales;
-
-cells[6][15].textContent = sumdailyTotal; //the total daily of the total hourly for all locations
-
-
-
-
-//Create the dynamic elements for the index page
-// let objList = [Seattle,Tokyo,Paris,Dubai,Lima];
-
-// for(let i = 0 ; i < 5 ; i++)
-// {
-//   const ulEl = document.createElement('ul');
-//   document.getElementById('OpenH').appendChild(ulEl);
-//   const liEl = document.createElement('li');
-//   ulEl.appendChild(liEl);
-//   liEl.textContent = `${objList[i].location}: Start from ${objList[i].startHour} am till ${objList[i].endHour-12} pm `;
-// }
-
-
-// export {objList};
+let dataform = document.getElementById('salesForm');
+dataform.addEventListener('submit',addLocation);
+//this function to git the data for the location on the form and call the showData function to put it on the table
+function addLocation(event)
+{
+  event.preventDefault();
+  const city = event.target.city.value ;
+  const minCus = event.target.minCus.value ;
+  const maxCus = event.target.maxCus.value ;
+  const averageSales = Number(event.target.avgSales.value);
+  const newLocation = new DailyData(city,minCus,maxCus,averageSales,6,19);
+  dataform.reset();
+  newLocation.fillData();
+  document.getElementById('dailyDataTable').remove();
+  showData();
+}
