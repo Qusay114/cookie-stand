@@ -38,6 +38,7 @@ function createTable(container,id,rowNum , coloumnNum , headerRow)
 }
 
 
+// let objList = [];
 //to create an object for daily data store where every hour has its number of purchases for each loaction (seattle , tokyo , ...)
 function DailyData(location,minCustPH , maxCustPH , averageCperC , startHour , endHour)
 {
@@ -50,6 +51,7 @@ function DailyData(location,minCustPH , maxCustPH , averageCperC , startHour , e
   this.salesPH = [];
   this.custPH = [];
   this.totalSales = 0;
+  // objList.push(this);
 }
 
 //to create a method for DailyData object that will fill the data of purchases for each hour and sum the total
@@ -178,11 +180,16 @@ cells[6][15].textContent = sumdailyTotal; //the total daily of the total hourly 
 
 
 //Create the dynamic elements for the index page
-let objList = [Seattle,Tokyo,Paris,Dubai,Lima];
+// let objList = [Seattle,Tokyo,Paris,Dubai,Lima];
 
-for(let i = 0 ; i < 5 ; i++)
-{
-  const openHours = document.createElement('li');
-  document.getElementById('rightSection').appendChild(openHours);
-  openHours.textContent = `${objList[i].location}: Start from ${objList[i].startHour} am till ${objList[i].endHour-12} pm `;
-}
+// for(let i = 0 ; i < 5 ; i++)
+// {
+//   const ulEl = document.createElement('ul');
+//   document.getElementById('OpenH').appendChild(ulEl);
+//   const liEl = document.createElement('li');
+//   ulEl.appendChild(liEl);
+//   liEl.textContent = `${objList[i].location}: Start from ${objList[i].startHour} am till ${objList[i].endHour-12} pm `;
+// }
+
+
+// export {objList};

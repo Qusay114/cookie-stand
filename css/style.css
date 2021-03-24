@@ -81,9 +81,9 @@
 {
     width: 100%;
     
-    min-height: 500px;
+    min-height: 720px;
     background-color:#e84545;
-    background-image: url('https://img3.mashed.com/img/gallery/the-most-popular-grocery-store-cookies-ranked-worst-to-best/l-intro-1599852725.jpg');
+    background-image: url('https://github.com/LTUC/amman-201d19/blob/master/class-08/lab-b/assets/family.jpg?raw=true');
     background-repeat:no-repeat;
     background-size:100% 100%;
 }
@@ -186,3 +186,46 @@ a
     color:black;
 }
 
+
+/* The style for the openHours Page */
+
+.openHoursCont main ul 
+{
+    padding:50px;
+    padding-left:200px;
+}
+
+.openHoursCont main ul li 
+{
+    padding:40px;
+    font-size:25px;
+    color:black;
+}
+
+.openHoursCont h1
+{
+    margin-top:20px;
+    font-size:30px;
+}
+
+
+/* The style for the Locations page */
+
+.locations main ul 
+{
+    padding:50px;
+    padding-left:200px;
+}
+
+.locations main ul li 
+{
+    padding:40px;
+    font-size:25px;
+    color:black;
+}
+
+.locations h1
+{
+    margin-top:20px;
+    font-size:30px;
+}

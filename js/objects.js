@@ -1,9 +1,24 @@
 //<script src="app.js"></script>
 
+// import {objList} from 'app.js';
+// console.log(objList);
+
+// for(let i = 0 ; i < 5 ; i++)
+// {
+//   const ulEl = document.createElement('ul');
+//   const container = document.getElementById('OpenH');
+//   console.log( container);
+//   container.appendChild(ulEl);
+//   const liEl = document.createElement('li');
+//   ulEl.appendChild(liEl);
+//   liEl.textContent = `${objList[i].location}: Start from ${objList[i].startHour} am till ${objList[i].endHour-12} pm `;
+// }
+
+
 
 function openHoursData()
 {
-  const section = document.getElementById('rightSection');
+  const section = document.getElementById('openHoursCont');
   section.innerHTML='';
   const openHours1 = document.createElement('li');
   section.appendChild(openHours1);
@@ -45,11 +60,11 @@ function address()
 }
 
 
-function home()
-{
-  const section = document.getElementById('rightSection');
-  section.innerHTML='';
-  const home = document.createElement('h1');
-  section.appendChild(home);
-  home.textContent = 'Welcome to Pat\'s Salmon cookies';
-}
+// function home()
+// {
+//   const section = document.getElementById('rightSection');
+//   section.innerHTML='';
+//   const home = document.createElement('h1');
+//   section.appendChild(home);
+//   home.textContent = 'Welcome to Pat\'s Salmon cookies';
+// }
