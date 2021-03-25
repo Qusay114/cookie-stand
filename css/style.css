@@ -186,6 +186,10 @@ a
     color:black;
 }
 
+tr:hover
+{
+    background-color: white;
+}
 form#salesForm 
 {
     margin-top: 40px;
@@ -202,13 +206,19 @@ fieldset
 input#city 
 {
     margin-left: 70px;
+    opacity:0.9;
 }
 
 input#avgSales 
 {
     margin-left: 98px;
+    opacity:0.9;
 }
 
+input[type="number" i]
+{
+    opacity:0.9;
+}
 input[type="submit"] 
 {
     margin-left: 245px;
@@ -246,6 +256,11 @@ input[type="submit"]:hover
     font-size:30px;
 }
 
+.openHoursCont img
+{
+    float:left;
+    width:33%;
+}
 
 /* The style for the Locations page */
 
@@ -266,4 +281,10 @@ input[type="submit"]:hover
 {
     margin-top:20px;
     font-size:30px;
+}
+
+.locations img
+{
+    float:left;
+    width:33%;
 }
