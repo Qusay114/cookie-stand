@@ -4,7 +4,7 @@
 {
     background-color: #b4a5a5;
     font-family: 'kalam';
-    color:white;
+    color:black;
     
 }
 
@@ -12,28 +12,42 @@
 /* style the header */
 .indexPage header 
 {
-    background-color:#2b2e4a;
+    background-color:white;
     min-height: 76px;
-    padding-top: 28px;
+    position:fixed;
+    width:100%;
+    top:0%;
 }
 
-.indexPage header nav img
+nav 
 {
-    width:20px;
-    height:20px;
+    display: inline;
+    position: relative;
+    /* left: 5%; */
+    bottom: 39px;
+}
+
+.indexPage header img
+{
+        width: 230px;
+        height: 140px;
+        position: relative;
+        right: 77px;
+        bottom: 19px;
+        display: inline;
 }
 .indexPage header nav ul 
 {
     list-style: none;
     padding: 43px;
-    margin-left: 180px;
+    margin-left: 0px;
     display: inline;
 }
 .indexPage header nav h1
 {
     display: inline;
     font-size: 40px;
-    color:white;   
+    color:black;   
 }
 
 .indexPage header nav ul li
@@ -45,14 +59,14 @@
 
 .indexPage header nav ul li:hover
 {
-    background-color: crimson;
+    background-color: #eb5314;
     cursor:pointer;
 }
 
 .indexPage header nav ul a
 {
     text-decoration:none;
-    color:white;
+    color:black;
 }
 /* end of the header style */
 
@@ -69,7 +83,10 @@
     background-repeat:no-repeat;
     background-size:100% 100%;
 } */
-
+.indexPage main
+{
+    margin-top: 10.8%;
+}
 .indexPage #leftSection img
 {
     width:410px;
@@ -81,9 +98,9 @@
 {
     width: 100%;
     
-    min-height: 720px;
+    min-height: 800px;
     background-color:#e84545;
-    background-image: url('https://github.com/LTUC/amman-201d19/blob/master/class-08/lab-b/assets/family.jpg?raw=true');
+    background-image: url('https://wallpaperaccess.com/full/1544866.jpg');
     background-repeat:no-repeat;
     background-size:100% 100%;
 }
@@ -102,25 +119,91 @@
 }
 /* end of the main style */
 
+/* the style of the my profile div 'before the footer' */
+
+#myProfile
+{
+    width:100%;
+    min-height: 400px;
+    background-color: white;
+}
+
+#myProfile img
+{
+    border-radius: 50%;
+    width: 315px;
+    height: 300px;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+#myProfile p
+{
+    display: inline-block;
+    position: relative;
+    bottom: 133px;
+    left: 50px;
+    font-size: 30px;
+}
+
 /* style of the footer */
 .indexPage footer
 {
     clear:both;
     width:100%;
     min-height:100px;
-    background-color:black;
+    background-color:#eb5314;
 }
 
 .indexPage footer ul
 {
-    padding: 45px;
+    padding: 50px;
+    display: inline-block;
+}
+
+#socialMedia li
+{
+    display: inline-block;
+    position: relative;
+    bottom: 62px;
+}
+#socialMedia h1
+{
+    position: relative;
+    bottom: 62px;
+}
+ul#socialMedia 
+{
+    padding-top: 105px;
+}
+
+footer img {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+}
+
+ul#info {
+    position: relative;
+    bottom: 32px;
+}
+
+ul#help {
+    position: relative;
+    top: -56px;
+}
+
+footer h1 {
+    margin: 0px;
+    font-size: 35px;
+    color: black;
 }
 
 .indexPage footer ul li 
 {
-    display: inline;
-    padding: 40px;
-    font-size: 25px;
+    /* display: inline; */
+    padding: 6px;
+    font-size: 17px;
     text-decoration:none;
     
 }
@@ -133,11 +216,19 @@
 
 
 /*style for the sales page*/
+
+body.salesPage 
+{
+    background-image: url('../images/salesDataBG.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 body
 {
-    background-color: #b4a5a5;
+    /* background-color: #b4a5a5; */
     font-family: 'kalam';
-    
+    background-image: linear-gradient(to right, #ffafbd,#ffc3a0);
 }
 h1 {
     text-align: center;
@@ -164,6 +255,8 @@ table#dailyDataTable
 {
     margin-left: 13%;
     padding: 3px;
+    /* border-radius: 35px; */
+    background-color: #ffffff75;
 }
 
 
@@ -172,6 +265,7 @@ table, th, td
     border: 1px solid black;
     padding: 8px;
     color:#9a000e;
+    border-radius: 26px;
 }
 
 th
@@ -193,14 +287,18 @@ tr:hover
 form#salesForm 
 {
     margin-top: 40px;
-    width: 59%;
+    width: 49%;
+    margin-left: 282px;
 }
 
 fieldset 
 {
-    padding: 30px;
+    padding: 30px; 
     padding-left: 70px;
-    margin-left: 172px;
+    /* margin-left: 172px; */
+    border-radius: 80px;
+    padding-top: 24px;
+    background-color: #ffffff75;
 }
 
 input#city 
@@ -287,4 +385,64 @@ input[type="submit"]:hover
 {
     float:left;
     width:33%;
+}
+
+
+
+
+
+/*/////////////////////////////////////////////////////// TEST  */
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  #orderForm
+  {
+      display: none;
+      width: 582px;
+    height: 255px;
+    position: fixed;
+    top: 39%;
+    left: 30%;
+    background-color: white;
+    z-index: 3;
+    border-radius: 75px;
+  }
+
+  #orderForm fieldset
+  {
+      padding: 0px;
+      margin: 0px;
+    padding-left: 65px;
+    padding-top: 42px;
+  }
+
+
+  input#city1 {
+    margin-left: 209px;
+    opacity: 0.9;
+}
+
+input#minCus1 {
+    margin-left: 204px;
+}
+
+input#maxCus1 {
+    margin-left: 204px;
+}
+
+
+input#avgSales1 {
+    margin-left: 10px;
+    opacity: 0.9;
 }

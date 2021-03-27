@@ -119,7 +119,7 @@ function showData()
   let endH = 19;
   let sumdailyTotal = 0;
   let sumHourlyTotal = 0;
-  cells[0][0].textContent='';
+  cells[0][0].textContent='Location';
   for(let c = 0 ; c<16; c++)
   {
   //to fill the row of hours
@@ -171,8 +171,8 @@ function addLocation(event)
 {
   event.preventDefault();
   const city = event.target.city.value ;
-  const minCus = event.target.minCus.value ;
-  const maxCus = event.target.maxCus.value ;
+  const minCus = Number(event.target.minCus.value) ;
+  const maxCus = Number(event.target.maxCus.value) ;
   const averageSales = Number(event.target.avgSales.value);
   const newLocation = new DailyData(city,minCus,maxCus,averageSales,6,19);
   dataform.reset();
@@ -180,3 +180,11 @@ function addLocation(event)
   document.getElementById('dailyDataTable').remove();
   showData();
 }
+
+
+
+
+
+
+
+////////////////////
