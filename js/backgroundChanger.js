@@ -4,15 +4,15 @@ let counter = 1;
 setInterval(function()
 {
   if(counter === 1)
-    containerBG.style.backgroundImage = 'url(\'../images/cookie4.jpg\')';
+    containerBG.style.backgroundImage = 'url(\'images/cookie4.jpg\')';
   if(counter === 2)
-    containerBG.style.backgroundImage = 'url(\'../images/cookie2.jpg\')';
+    containerBG.style.backgroundImage = 'url(\'images/cookie2.jpg\')';
   if(counter === 3)
     containerBG.style.backgroundImage = 'url(\'images/cookie3.jpg\')';
   if(counter === 4)
-    containerBG.style.backgroundImage = 'url(\'../images/cookie1.jpg\')';
+    containerBG.style.backgroundImage = 'url(\'images/cookie1.jpg\')';
   if(counter === 5)
-    containerBG.style.backgroundImage = 'url(\'../images/cookie5.jpg\')';
+    containerBG.style.backgroundImage = 'url(\'images/cookie5.jpg\')';
   counter++;
   if(counter>5)
     counter=1;
