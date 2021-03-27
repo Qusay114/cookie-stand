@@ -8,7 +8,7 @@ setInterval(function()
   if(counter === 2)
     containerBG.style.backgroundImage = 'url(\'../images/cookie2.jpg\')';
   if(counter === 3)
-    containerBG.style.backgroundImage = 'url(\'../images/cookie3.jpg\')';
+    containerBG.style.backgroundImage = 'url(\'./images/cookie3.jpg\')';
   if(counter === 4)
     containerBG.style.backgroundImage = 'url(\'../images/cookie1.jpg\')';
   if(counter === 5)
